@@ -1,1 +1,1 @@
-new Game(0,0);
+var game=new Game(75,150);

@@ -1,32 +1,35 @@
 function Map(rows,columns) {
     this.rows=rows;
     this.columns=columns;
+    this.createArray();
 }
 
-Map.ID="map";
-Map.ROW_CLASS=Map.ID+"_row";
+Map.CLASS="map";
+Map.ROW_CLASS=Map.CLASS+"_row";
 Map.COL_CLASS=Map.ROW_CLASS+"_col";
 Map.prototype.createArray=function () {
-    this.array=new Array(this.rows);
+    this.array=[];
     for(var i=0;i<this.rows;i++)
-        this.array[i]=new Array(this.columns);
+        this.array[i]=[];
 };
-Map.prototype.array=Map.prototype.createArray();
+Map.prototype.array=[];
 Map.prototype.rows=0;
 Map.prototype.columns=0;
 Map.prototype.div=null;
 Map.prototype.draw=function () {
     this.div=document.createElement("div");
-    this.div.id=Map.ID;
-    for(var i in this.array){
-        var row=document.createElement("div");
+    this.div.className=Map.CLASS;
+    var row,col;
+    for(var i=0;i<this.rows;i++){
+        row=document.createElement("div");
         row.className=Map.ROW_CLASS;
-        for(var j in this.array[i]){
-            var col=document.createElement("div");
+        this.div.append(row);
+        for(var j=0;j<this.columns;j++){
+            col=document.createElement("div");
             col.className=Map.COL_CLASS;
-            row.appendChild(col);
+            row.append(col);
+            this.array[i][j]=col;
         }
-        this.div.appendChild(row);
     }
     document.body.appendChild(this.div);
 };

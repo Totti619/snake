@@ -1,0 +1,25 @@
+div.map,
+div.map_row{
+    width: auto;
+    clear:both;
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+div.map{
+    margin: 20px;
+    overflow: auto;
+}
+div.map_row{
+    border-left: 1px solid black;
+
+}
+div.map_row_col{
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin:0;
+    padding: 0;
+    border: 1px solid grey;
+}
